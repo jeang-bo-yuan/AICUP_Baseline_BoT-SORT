@@ -4,6 +4,7 @@ INPUT:
   SIZE_TRAIN: [256, 256]
   SIZE_TEST: [256, 256]
 
+# **********************
 MODEL:
   BACKBONE:
     WITH_IBN: True
@@ -14,11 +15,13 @@ MODEL:
     TRI:
       HARD_MINING: False
       MARGIN: 0.0
+# ************************
 
 DATASETS:
   NAMES: ("AICUP",)
   TESTS: ("AICUP",)
 
+# *****************
 SOLVER:
   BIAS_LR_FACTOR: 1.
 
@@ -28,7 +31,7 @@ SOLVER:
   WARMUP_ITERS: 2000
 
   CHECKPOINT_PERIOD: 1
-
+# *******************
 TEST:
   EVAL_PERIOD: 60 # We didn't provide eval dataset
   IMS_PER_BATCH: 256
