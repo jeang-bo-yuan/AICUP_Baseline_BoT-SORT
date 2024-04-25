@@ -1,8 +1,9 @@
+# 查閱fast_reid/fastreid/config/defaults.py
 _BASE_: ../Base-bagtricks.yml
 
 INPUT:
   SIZE_TRAIN: [256, 256]
-  SIZE_TEST: [256, 256]
+  SIZE_TEST: [256, 256] 
 
 # **********************
 MODEL:
@@ -13,8 +14,8 @@ MODEL:
 
   LOSSES:
     TRI:
-      HARD_MINING: False
-      MARGIN: 0.0
+      HARD_MINING: True #revised orgin:false
+      MARGIN: 0.3 #revised orgin:0.0
 # ************************
 
 DATASETS:
@@ -25,15 +26,15 @@ DATASETS:
 SOLVER:
   BIAS_LR_FACTOR: 1.
 
-  IMS_PER_BATCH: 256
-  MAX_EPOCH: 60
-  STEPS: [30, 50]
+  IMS_PER_BATCH: 64 #revised, orgin:256
+  MAX_EPOCH: 120 #revised, orgin:60
+  STEPS: [30, 60, 90] #revised
   WARMUP_ITERS: 2000
 
-  CHECKPOINT_PERIOD: 1
+  CHECKPOINT_PERIOD: 10
 # *******************
 TEST:
-  EVAL_PERIOD: 60 # We didn't provide eval dataset
-  IMS_PER_BATCH: 256
+  EVAL_PERIOD: 120 # We didn't provide eval dataset
+  IMS_PER_BATCH: 64
 
 OUTPUT_DIR: logs/AICUP_115/bagtricks_R50-ibn
